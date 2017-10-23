@@ -28,7 +28,7 @@ public class dodajKsiazkeServlet extends HttpServlet{
                 "Autor: <input type='text' name='autor' value=''/> <br />" +
                 "Cena: <input type='text' name='cena' value='0.00'/> <br />" +
                 "Ilość: <input type='text' name='ilosc' value='1'/> <br />" +
-                "<input type='submit' value=' OK ' />" +
+                "<button type='submit' name='dodaj'>Dodaj</button>" +
                 "</form>" +
                 "</body></html>");
 

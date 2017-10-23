@@ -36,7 +36,7 @@ public class BookServlet extends HttpServlet{
 
 
         out.println("<html><body><h2>Witaj w sklepie z książkami</h2>");
-        out.println(    "<p><a href='dodajKsiazke'>Spis książek</a></p>" +
+        out.println(    "<p><a href='spis'>Spis książek</a></p>" +
                         "<p><a href='formularz'>Formularz zakupowy</a></p>" +
                         "<p><a href='koszyk'>Koszyk</a></p>" +
                         "</body></html>");

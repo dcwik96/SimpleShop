@@ -23,24 +23,25 @@ public class SpisServlet extends HttpServlet{
         PrintWriter out = httpServletResponse.getWriter();
 
         StorageService appBooks = (StorageService) getServletContext().getAttribute("appBooks");
-
-        String tytul = httpServletRequest.getParameter("tytul");
-        String autor = httpServletRequest.getParameter("autor");
-        double cena = Double.parseDouble(httpServletRequest.getParameter("cena"));
-        int ilosc = Integer.parseInt(httpServletRequest.getParameter("ilosc"));
-
-        appBooks.add(new Book(tytul, autor, cena, ilosc));
         Map<Integer, Book> db = appBooks.getAllBooks();
 
+        if (httpServletRequest.getParameter("dodaj") != null) {
+            String tytul = httpServletRequest.getParameter("tytul");
+            String autor = httpServletRequest.getParameter("autor");
+            double cena = Double.parseDouble(httpServletRequest.getParameter("cena"));
+            int ilosc = Integer.parseInt(httpServletRequest.getParameter("ilosc"));
+
+            appBooks.add(new Book(tytul, autor, cena, ilosc));
+            db = appBooks.getAllBooks();
+        }
 
         out.println("<html><body><h3>Spis wszystkich książek</h3>" +
-                    "<form action='dodajKsiazke'><button value='dodaj'>Dodaj</button></form>");
+                "<form action='dodajKsiazke'><button value='dodaj'>Dodaj</button></form>");
         for (Map.Entry<Integer, Book> entry : db.entrySet()) {
             out.println("'" + entry.getValue().getTitle() + "' by " + entry.getValue().getAuthor() + " for: " + entry.getValue().getPrize() +
-                    "<form action='koszyk'><button type='submit' name='dupa' value='" + entry.getKey() + "'>Kup</button></form>"  + "<br />");
+                    "<form action='koszyk'><button type='submit' name='przedmiot' value='" + entry.getKey() + "'>Kup</button></form>" + "<br />");
         }
         out.println("</body></html>");
-
         out.close();
     }
 }

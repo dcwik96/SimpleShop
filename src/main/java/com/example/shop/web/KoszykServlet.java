@@ -23,29 +23,30 @@ public class KoszykServlet extends HttpServlet{
         httpServletResponse.setCharacterEncoding("UTF-8");
 
         HttpSession session = httpServletRequest.getSession();
-
-        PrintWriter out = httpServletResponse.getWriter();
-
         KoszykService koszykSession = (KoszykService) session.getAttribute("koszykSess");
         StorageService appBooks = (StorageService) getServletContext().getAttribute("appBooks");
 
-        Book koszykBook = appBooks.findBookById(Integer.parseInt(httpServletRequest.getParameter("dupa")));
-        String tytul = koszykBook.getTitle();
-        String autor = koszykBook.getAuthor();
-        double cena = koszykBook.getPrize();
-        int ilosc = koszykBook.getAmount();
+        PrintWriter out = httpServletResponse.getWriter();
 
-        koszykSession.add(new Book(tytul, autor, cena, ilosc));
         Map<Integer, Book> db = koszykSession.getAllBooks();
+
+        if (httpServletRequest.getParameter("przedmiot") != null) {
+            Book koszykBook = appBooks.findBookById(Integer.parseInt(httpServletRequest.getParameter("przedmiot")));
+            String tytul = koszykBook.getTitle();
+            String autor = koszykBook.getAuthor();
+            double cena = koszykBook.getPrize();
+            int ilosc = koszykBook.getAmount();
+
+            koszykSession.add(new Book(tytul, autor, cena, ilosc));
+            db = koszykSession.getAllBooks();
+        }
 
         out.println("<html><body><h3>Koszyk</h3>");
         for (Map.Entry<Integer, Book> entry : db.entrySet()) {
-            out.println("'" + entry.getValue().getTitle() + "' by " + entry.getValue().getAuthor() + " for: " + entry.getValue().getPrize() +
-                    "<form action='koszyk'><button type='submit' name='dupa' value='" + entry.getKey() + "'>Kup</button></form>"  + "<br />");
+            out.println("'" + entry.getValue().getTitle() + "' by " + entry.getValue().getAuthor() + " for: " + entry.getValue().getPrize() + "<br />");
         }
         out.println("</body></html>");
 
         out.close();
-
     }
 }
