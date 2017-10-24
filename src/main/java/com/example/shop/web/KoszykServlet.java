@@ -1,7 +1,6 @@
 package com.example.shop.web;
 
 import com.example.shop.domain.Book;
-import com.example.shop.service.KoszykService;
 import com.example.shop.service.StorageService;
 
 import javax.servlet.ServletException;
@@ -23,7 +22,7 @@ public class KoszykServlet extends HttpServlet{
         httpServletResponse.setCharacterEncoding("UTF-8");
 
         HttpSession session = httpServletRequest.getSession();
-        KoszykService koszykSession = (KoszykService) session.getAttribute("koszykSess");
+        StorageService koszykSession = (StorageService) session.getAttribute("koszykSess");
         StorageService appBooks = (StorageService) getServletContext().getAttribute("appBooks");
 
         PrintWriter out = httpServletResponse.getWriter();

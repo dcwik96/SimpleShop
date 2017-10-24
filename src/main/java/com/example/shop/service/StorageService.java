@@ -28,4 +28,8 @@ public class StorageService {
 		return null;
 	}
 
+	public void deleteAll(){
+		db.clear();
+	}
+
 }

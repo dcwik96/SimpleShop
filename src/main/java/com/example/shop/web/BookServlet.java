@@ -1,8 +1,6 @@
 package com.example.shop.web;
 
 
-import com.example.shop.domain.Book;
-import com.example.shop.service.KoszykService;
 import com.example.shop.service.StorageService;
 
 import javax.servlet.ServletException;
@@ -13,9 +11,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.Set;
 
 @WebServlet("/ksiazki")
 public class BookServlet extends HttpServlet{
@@ -37,31 +32,14 @@ public class BookServlet extends HttpServlet{
 
         out.println("<html><body><h2>Witaj w sklepie z książkami</h2>");
         out.println(    "<p><a href='spis'>Spis książek</a></p>" +
-                        "<p><a href='formularz'>Formularz zakupowy</a></p>" +
+                        "<p><a href='formularz.jsp'>Formularz zakupowy</a></p>" +
                         "<p><a href='koszyk'>Koszyk</a></p>" +
                         "</body></html>");
 
         if (session.getAttribute("koszykSess") == null) {
-            session.setAttribute("koszykSess", new KoszykService());
+            session.setAttribute("koszykSess", new StorageService());
         }
 
-
-
-
-
-
-
-
-
-        //        StorageService storageService = new StorageService();
-//        Book book = new Book("Jakas", "Jakis", 10.0, 2);
-//        storageService.add(book);
-//
-//        Map<Book, Integer> books = storageService.getAllBooks();
-//
-//        out.println("czesc");
-//
-//        out.println(books.containsKey(1));
         out.close();
     }
 }
