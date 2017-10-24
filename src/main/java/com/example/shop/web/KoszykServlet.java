@@ -44,6 +44,9 @@ public class KoszykServlet extends HttpServlet{
         for (Map.Entry<Integer, Book> entry : db.entrySet()) {
             out.println("'" + entry.getValue().getTitle() + "' by " + entry.getValue().getAuthor() + " for: " + entry.getValue().getPrize() + "<br />");
         }
+        out.println("<form action='ksiazki'>" +
+        				"<input type='submit' value='Wróć na stronę główną'/>" + 
+        			"</form>");
         out.println("</body></html>");
 
         out.close();

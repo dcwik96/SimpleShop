@@ -41,6 +41,9 @@ public class SpisServlet extends HttpServlet{
             out.println("'" + entry.getValue().getTitle() + "' by " + entry.getValue().getAuthor() + " for: " + entry.getValue().getPrize() +
                     "<form action='koszyk'><button type='submit' name='przedmiot' value='" + entry.getKey() + "'>Kup</button></form>" + "<br />");
         }
+        out.println("<form action='ksiazki'>" +
+						"<input type='submit' value='Wróć na stronę główną'/>" + 
+        			"</form>");
         out.println("</body></html>");
         out.close();
     }

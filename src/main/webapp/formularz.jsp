@@ -29,7 +29,10 @@
     <p>Wypełnij formularz i zatwierdz !</p><br />
     <form action='sprzedajKsiazki.jsp'>
         First name: <input type='text' name='firstName' value="${person.firstName}"/> <br />
-        <input type="submit" value=" OK ">
+        <input type="submit" value="KUP">
+    </form>
+    <form action='ksiazki'>
+    	<input type='submit' value='Wróć na stronę główną'/>
     </form>
 </body>
 </html>

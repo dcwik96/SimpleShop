@@ -30,6 +30,9 @@ public class dodajKsiazkeServlet extends HttpServlet{
                 "Ilość: <input type='text' name='ilosc' value='1'/> <br />" +
                 "<button type='submit' name='dodaj'>Dodaj</button>" +
                 "</form>" +
+                "<form action='ksiazki'>" +
+        				"<input type='submit' value='Wróć na stronę główną'/>" + 
+        		"</form>" +
                 "</body></html>");
 
         out.close();
