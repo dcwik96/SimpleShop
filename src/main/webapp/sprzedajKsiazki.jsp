@@ -12,12 +12,13 @@
 </head>
 <body>
 <jsp:useBean id="koszykSess" class="com.example.shop.service.StorageService" scope="session" />
-
-<%
-    koszykSess.deleteAll();
-    session.invalidate();
-%>
-
-<p>Dziekujemy za zakupy.</p>
+    <%
+        koszykSess.deleteAll();
+        session.invalidate();
+    %>
+    <p>Dziekujemy za zakupy.</p>
+    <form action='ksiazki'>
+        <input type='submit' value='Wróć na stronę główną'/>
+    </form>
 </body>
 </html>

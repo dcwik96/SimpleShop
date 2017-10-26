@@ -30,13 +30,15 @@ public class KoszykServlet extends HttpServlet{
         Map<Integer, Book> db = koszykSession.getAllBooks();
 
         if (httpServletRequest.getParameter("przedmiot") != null) {
-            Book koszykBook = appBooks.findBookById(Integer.parseInt(httpServletRequest.getParameter("przedmiot")));
-            String tytul = koszykBook.getTitle();
-            String autor = koszykBook.getAuthor();
-            double cena = koszykBook.getPrize();
-            int ilosc = koszykBook.getAmount();
+            for (String ksiazka : httpServletRequest.getParameterValues("przedmiot")){
+                Book koszykBook = appBooks.findBookById(Integer.parseInt(ksiazka));
+                String tytul = koszykBook.getTitle();
+                String autor = koszykBook.getAuthor();
+                double cena = koszykBook.getPrize();
+                int ilosc = koszykBook.getAmount();
 
-            koszykSession.add(new Book(tytul, autor, cena, ilosc));
+                koszykSession.add(new Book(tytul, autor, cena, ilosc));
+            }
             db = koszykSession.getAllBooks();
         }
 

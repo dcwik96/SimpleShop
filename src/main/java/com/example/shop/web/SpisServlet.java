@@ -36,15 +36,18 @@ public class SpisServlet extends HttpServlet{
         }
 
         out.println("<html><body><h3>Spis wszystkich książek</h3>" +
-                "<form action='dodajKsiazke'><button value='dodaj'>Dodaj</button></form>");
+                    "   <form action='dodajKsiazke'><button value='dodaj'>Dodaj</button></form>" +
+                    "   <form action='koszyk'>");
         for (Map.Entry<Integer, Book> entry : db.entrySet()) {
-            out.println("'" + entry.getValue().getTitle() + "' by " + entry.getValue().getAuthor() + " for: " + entry.getValue().getPrize() +
-                    "<form action='koszyk'><button type='submit' name='przedmiot' value='" + entry.getKey() + "'>Kup</button></form>" + "<br />");
+            out.println("'" + entry.getValue().getTitle() + "' by " + entry.getValue().getAuthor() + " for: " + entry.getValue().getPrize() + " " + entry.getValue().getAmount() + " left!" +
+                        "   <input type='checkbox' name='przedmiot' value='" + entry.getKey() + "'> <br />");
         }
-        out.println("<form action='ksiazki'>" +
-						"<input type='submit' value='Wróć na stronę główną'/>" + 
-        			"</form>");
-        out.println("</body></html>");
+        out.println("       <button type='submit' name='kup'>Kup</button>" +
+                    "   </form>" + "<br />" +
+                    "   <form action='ksiazki'>" +
+                    "       <input type='submit' value='Wróć na stronę główną'/>" +
+        			"   </form>" +
+                    "</body></html>");
         out.close();
     }
 }
