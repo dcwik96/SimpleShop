@@ -45,6 +45,8 @@ public class Book {
 	public void setAmount(int amount) {
 		this.amount = amount;
 	}
+	public void increaseAmount(int amount) { this.amount = this.amount+amount; }
 	public void increaseAmount() { this.amount++; }
+	public void decreaseAmount() { this.amount--; }
 
 }

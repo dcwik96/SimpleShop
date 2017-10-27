@@ -36,15 +36,15 @@ public class KoszykServlet extends HttpServlet{
                 String autor = koszykBook.getAuthor();
                 double cena = koszykBook.getPrize();
                 int ilosc = koszykBook.getAmount();
-
-                koszykSession.add(new Book(tytul, autor, cena, ilosc));
+                koszykSession.add(new Book(tytul, autor, cena, 1));
+                appBooks.decreaseBook(new Book(tytul, autor, cena, ilosc));
             }
             db = koszykSession.getAllBooks();
         }
 
         out.println("<html><body><h3>Koszyk</h3>");
         for (Map.Entry<Integer, Book> entry : db.entrySet()) {
-            out.println("'" + entry.getValue().getTitle() + "' by " + entry.getValue().getAuthor() + " for: " + entry.getValue().getPrize() + "<br />");
+            out.println("'" + entry.getValue().getTitle() + "' by " + entry.getValue().getAuthor() + " for: " + entry.getValue().getPrize() + " " + entry.getValue().getAmount() + "<br />");
         }
         out.println("<form action='ksiazki'>" +
         				"<input type='submit' value='Wróć na stronę główną'/>" + 

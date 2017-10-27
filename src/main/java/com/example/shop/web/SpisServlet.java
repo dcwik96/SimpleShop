@@ -32,9 +32,8 @@ public class SpisServlet extends HttpServlet{
             int ilosc = Integer.parseInt(httpServletRequest.getParameter("ilosc"));
 
             appBooks.add(new Book(tytul, autor, cena, ilosc));
-            db = appBooks.getAllBooks();
         }
-
+        db = appBooks.getAllBooks();
         out.println("<html><body><h3>Spis wszystkich książek</h3>" +
                     "   <form action='dodajKsiazke'><button value='dodaj'>Dodaj</button></form>" +
                     "   <form action='koszyk'>");
