@@ -1,11 +1,11 @@
 # Simple Book Shop
 Simple shop with books
 
-###Technologies
+### Technologies
 * Java Servlet
 * JavaServer Pages
 
-###How to run
+### How to run
 ```$xslt
 $ mvn jetty:run
 ```
