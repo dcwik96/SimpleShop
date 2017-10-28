@@ -13,7 +13,6 @@
 </head>
 <body>
     <jsp:useBean id="koszykSess" class="com.example.shop.service.StorageService" scope="session" />
-    <jsp:useBean id="person" class="com.example.shop.domain.Person" scope="session" />
     <%
         Map<Integer, Book> db = koszykSess.getAllBooks();
 
@@ -26,9 +25,8 @@
     %>
     <h3>Twoje zakupy wyniosły:  <%out.println(toPay);%> </h3><br />
     <p>Chcesz kupic <%out.println(howManyBooks);%> książki ?</p><br />
-    <p>Wypełnij formularz i zatwierdz !</p><br />
+    <p>Potwierdź zakupy</p><br />
     <form action='sprzedajKsiazki.jsp'>
-        First name: <input type='text' name='firstName' value="${person.firstName}"/> <br />
         <input type="submit" value="KUP">
     </form>
     <form action='ksiazki'>

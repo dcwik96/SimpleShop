@@ -23,17 +23,17 @@ public class dodajKsiazkeServlet extends HttpServlet{
         PrintWriter out = httpServletResponse.getWriter();
 
         out.println("<html><body><h3>Dodaj książkę</h3>" +
-                "<form action='spis'>" +
-                "Tytul: <input type='text' name='tytul' value=''/> <br />" +
-                "Autor: <input type='text' name='autor' value=''/> <br />" +
-                "Cena: <input type='text' name='cena' value='0.00'/> <br />" +
-                "Ilość: <input type='text' name='ilosc' value='1'/> <br />" +
-                "<button type='submit' name='dodaj'>Dodaj</button>" +
-                "</form>" +
-                "<form action='ksiazki'>" +
-        				"<input type='submit' value='Wróć na stronę główną'/>" + 
-        		"</form>" +
-                "</body></html>");
+                        "<form action='spis'>" +
+                        "Tytul: <input type='text' name='tytul' value=''/> <br />" +
+                        "Autor: <input type='text' name='autor' value=''/> <br />" +
+                        "Cena: <input type='text' name='cena' value='0.00'/> <br />" +
+                        "Ilość: <input type='text' name='ilosc' value='1'/> <br />" +
+                        "<button type='submit' name='dodaj'>Dodaj</button>" +
+                        "</form>" +
+                        "<form action='ksiazki'>" +
+                                "<input type='submit' value='Wróć na stronę główną'/>" +
+                        "</form>" +
+                    "</body></html>");
 
         out.close();
     }

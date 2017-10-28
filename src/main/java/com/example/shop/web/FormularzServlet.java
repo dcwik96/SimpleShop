@@ -36,13 +36,13 @@ public class FormularzServlet extends HttpServlet{
         }
 
         out.println("<html><body><h3>Podsumowanie</h3>" +
-                    "<h3>Twoje zakupy wyniosły: " + toPay + "</h3><br />" +
-                    "<p>Chcesz kupic " + howManyBooks + " książki ?</p><br />" +
-                    "<p>Wypełnij formularz i zatwierdz !</p><br />" +
-                    "<form action='data'>" +
-                    "First name: <input type='text' name='firstName' /> <br />" +
-                    "Last name: <input type='text' name='lastName' /> <br />" +
-                    "Phone number: <input type='text' name='phoneNumber''/> <br />" +
+                        "<h3>Twoje zakupy wyniosły: " + toPay + "</h3><br />" +
+                        "<p>Chcesz kupic " + howManyBooks + " książki ?</p><br />" +
+                        "<p>Wypełnij formularz i zatwierdz !</p><br />" +
+                        "<form action='data'>" +
+                        "First name: <input type='text' name='firstName' /> <br />" +
+                        "Last name: <input type='text' name='lastName' /> <br />" +
+                        "Phone number: <input type='text' name='phoneNumber''/> <br />" +
                     "</body></html>");
     }
 }

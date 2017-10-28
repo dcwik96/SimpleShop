@@ -30,11 +30,10 @@ public class BookServlet extends HttpServlet{
         PrintWriter out = httpServletResponse.getWriter();
 
 
-        out.println("<html><body><h2>Witaj w sklepie z książkami</h2>");
-        out.println(    "<p><a href='spis'>Spis książek</a></p>" +
-                        "<p><a href='formularz.jsp'>Formularz zakupowy</a></p>" +
+        out.println("<html><body><h2>Witaj w sklepie z książkami</h2>" +
+                        "<p><a href='spis'>Spis książek</a></p>" +
                         "<p><a href='koszyk'>Koszyk</a></p>" +
-                        "</body></html>");
+                    "</body></html>");
 
         if (session.getAttribute("koszykSess") == null) {
             session.setAttribute("koszykSess", new StorageService());
